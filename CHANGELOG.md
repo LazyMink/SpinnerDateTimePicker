@@ -1,4 +1,8 @@
 
+## 0.0.5
+
+* Added documentation
+
 ## 0.0.4
 
 * Updated version

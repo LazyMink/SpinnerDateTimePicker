@@ -4,7 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 /// Create a DateTime picker widget for use in a [Dialog]
-/// Can also be used outside a dialog 
+/// Can also be used outside a dialog
 class SpinnerDateTimePicker extends StatefulWidget {
   const SpinnerDateTimePicker({
     Key? key,
@@ -53,8 +53,8 @@ class _SpinnerDateTimePickerState extends State<SpinnerDateTimePicker> {
   late DateTime minimumDate;
   late DateTime selectedDateTime;
 
-  /// sets up the DateTime object to only use year, month, day, hour, minute.
-  /// Datetime usually has additional values that seem to mess up the min-max dates in the spinner
+  /// sets up the [DateTime] object to only use year, month, day, hour, minute.
+  /// [Datetime] usually has additional values that seem to mess up the min-max dates in the spinner
   void setupDateTime() {
     DateTime now = DateTime.now();
     now = widget.initialDateTime;
