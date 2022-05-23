@@ -1,4 +1,8 @@
 
+## 0.0.6
+
+* Ran Flutter Format
+
 ## 0.0.5
 
 * Added documentation

@@ -31,7 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   DateTime selectedDate = DateTime.now();
 
   @override
@@ -53,31 +52,39 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  showDialog(context: context, builder: (context) {
-                    var today = DateTime.now();
-                    return Dialog(
-                      child: SpinnerDateTimePicker(
-                        initialDateTime: today,
-                        maximumDate: today.add(const Duration(days: 7)),
-                        minimumDate: today.subtract(const Duration(days: 1)),
-                        mode: CupertinoDatePickerMode.dateAndTime,
-                        use24hFormat: true,
-                        didSetTime: (value) {
-                          setState(() {
-                            selectedDate = value;
-                          });
-                        },
-                      ),
-                    );
-                  });
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        var today = DateTime.now();
+                        return Dialog(
+                          child: SpinnerDateTimePicker(
+                            initialDateTime: today,
+                            maximumDate: today.add(const Duration(days: 7)),
+                            minimumDate:
+                                today.subtract(const Duration(days: 1)),
+                            mode: CupertinoDatePickerMode.dateAndTime,
+                            use24hFormat: true,
+                            didSetTime: (value) {
+                              setState(() {
+                                selectedDate = value;
+                              });
+                            },
+                          ),
+                        );
+                      });
                 },
                 child: const Text(
                   "Select Date & Time",
                 ),
               ),
-              const SizedBox(height: 16,),
+              const SizedBox(
+                height: 16,
+              ),
               const Text("Selected date:"),
-              Text("$selectedDate", style: const TextStyle(fontSize: 18),),
+              Text(
+                "$selectedDate",
+                style: const TextStyle(fontSize: 18),
+              ),
             ],
           ),
         ),
