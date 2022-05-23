@@ -1,11 +1,11 @@
 name: spinner_date_time_picker
-description: A date time picker I use a lot.
-version: 0.0.1
+description: A Flutter widget to show a spinner type date picker and return a DateTime object based on cupertino.
+  This widget is build on CupertinoDatePicker and has a similar behavior.
+version: 0.0.2
 homepage: https://github.com/LazyMink/SpinnerDateTimePicker
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
-#  sdk: ">=2.16.2 <3.0.0"
+  sdk: ">=2.16.2 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:

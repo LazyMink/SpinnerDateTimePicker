@@ -14,17 +14,17 @@ class SpinnerDateTimePicker extends StatefulWidget {
   // static const String dateTimePattern = "dd MMM yyyy hh:mm aa";
 
   const SpinnerDateTimePicker({
-    Key key,
+    Key? key,
     // this.dialogTitle = "Title",
     // this.dialogMessage = "Description",
-    this.initialDateTime,
-    this.maximumDate,
-    this.minimumDate,
+    required this.initialDateTime,
+    required this.maximumDate,
+    required this.minimumDate,
     this.use24hFormat = true,
     this.mode = CupertinoDatePickerMode.date,
     // this.didSelectDate,
     // this.formatPattern = dateTimePattern,
-    this.didSetTime
+    required this.didSetTime
   }) : super(key: key);
 
   // final String formatPattern;
@@ -50,11 +50,11 @@ class SpinnerDateTimePicker extends StatefulWidget {
 
 class _SpinnerDateTimePickerState extends State<SpinnerDateTimePicker> {
 
-  DateTime initialDate;
-  DateTime maximumDate;
-  DateTime minimumDate;
+  late DateTime initialDate;
+  late DateTime maximumDate;
+  late DateTime minimumDate;
 
-  DateTime selectedDateTime;
+  late DateTime selectedDateTime;
 
   void setupDateTime() {
     DateTime now = DateTime.now();
