@@ -11,12 +11,16 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This is a very simple spinner date picker, that i often use projects.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Set initial date time.
+- Set minimum date date.
+- Set maximum date date.
+- Set picker type. date, time or date&time.
+- Set 24h true/false.
+- Set time callback.
 
 ## Getting started
 
@@ -25,15 +29,29 @@ start using the package.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+You can use it to make a dialog.
 
 ```dart
-const like = 'sample';
+showDialog(
+  context: context,
+  builder: (context) {
+    var now = DateTime.now();
+    return Dialog(
+      child: SpinnerDateTimePicker(
+        initialDateTime: now,
+        maximumDate: now.add(Duration(days: 7)),
+        minimumDate: now.subtract(Duration(days: 1)),
+        mode: CupertinoDatePickerMode.dateAndTime,
+        use24hFormat: true,
+        didSetTime: (value) {
+          log.d("did set time: $value");
+        },
+      ),
+    );
+  },
+);
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Nothing for now. Let me know if i missed anything i need to add.

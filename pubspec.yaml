@@ -1,7 +1,7 @@
 name: spinner_date_time_picker
 description: A date time picker I use a lot.
 version: 0.0.1
-homepage:
+homepage: https://github.com/LazyMink/SpinnerDateTimePicker
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
