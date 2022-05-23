@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SafeArea(
         child: Container(
-          margin: EdgeInsets.all(16),
+          margin: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -75,9 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   "Select Date & Time",
                 ),
               ),
-              SizedBox(height: 16,),
+              const SizedBox(height: 16,),
               const Text("Selected date:"),
-              Text("$selectedDate", style: TextStyle(fontSize: 18),),
+              Text("$selectedDate", style: const TextStyle(fontSize: 18),),
             ],
           ),
         ),
