@@ -52,6 +52,8 @@ showDialog(
 );
 ```
 
+<img src="https://user-images.githubusercontent.com/5280357/169723444-5028009b-8ac0-47ff-9d6d-bb6cb6643c7f.png" alt="">
+
 ## Additional information
 
 Nothing for now. Let me know if i missed anything i need to add.
