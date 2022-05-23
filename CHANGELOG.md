@@ -1,4 +1,8 @@
 
+## 0.0.4
+
+* Updated version
+
 ## 0.0.3
 
 * Updated example
