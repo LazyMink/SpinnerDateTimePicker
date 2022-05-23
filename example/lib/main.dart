@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter Example',
-      home: const MyHomePage(title: 'Example'),
+      home: MyHomePage(title: 'Example'),
     );
   }
 }
@@ -32,7 +32,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  late DateTime selectedDate;
+  DateTime selectedDate = DateTime.now();
 
   @override
   void initState() {
@@ -46,35 +46,40 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                showDialog(context: context, builder: (context) {
-                  var now = DateTime.now();
-                  return Dialog(
-                    child: SpinnerDateTimePicker(
-                      initialDateTime: now,
-                      maximumDate: now.add(Duration(days: 7)),
-                      minimumDate: now.subtract(Duration(days: 1)),
-                      mode: CupertinoDatePickerMode.dateAndTime,
-                      use24hFormat: true,
-                      didSetTime: (value) {
-                        setState(() {
-                          selectedDate = value;
-                        });
-                      },
-                    ),
-                  );
-                });
-              },
-              child: Text(
-                "Select Date & Time",
+        child: Container(
+          margin: EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(context: context, builder: (context) {
+                    var today = DateTime.now();
+                    return Dialog(
+                      child: SpinnerDateTimePicker(
+                        initialDateTime: today,
+                        maximumDate: today.add(const Duration(days: 7)),
+                        minimumDate: today.subtract(const Duration(days: 1)),
+                        mode: CupertinoDatePickerMode.dateAndTime,
+                        use24hFormat: true,
+                        didSetTime: (value) {
+                          setState(() {
+                            selectedDate = value;
+                          });
+                        },
+                      ),
+                    );
+                  });
+                },
+                child: const Text(
+                  "Select Date & Time",
+                ),
               ),
-            ),
-            Text("Selected date:"),
-            Text("$selectedDate"),
-          ],
+              SizedBox(height: 16,),
+              const Text("Selected date:"),
+              Text("$selectedDate", style: TextStyle(fontSize: 18),),
+            ],
+          ),
         ),
       ),
     );
