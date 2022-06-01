@@ -1,4 +1,8 @@
 
+## 0.0.7
+
+* Changing button text based on picker mode
+
 ## 0.0.6
 
 * Ran Flutter Format

@@ -88,10 +88,21 @@ class _SpinnerDateTimePickerState extends State<SpinnerDateTimePicker> {
     );
   }
 
+  /// changes the button text based picker mode
+  var buttonTitle = "SET DATE";
+
   @override
   void initState() {
     super.initState();
     setupDateTime();
+
+    if (widget.mode == CupertinoDatePickerMode.date) {
+      buttonTitle = "SET DATE";
+    } else if (widget.mode == CupertinoDatePickerMode.time) {
+      buttonTitle = "SET TIME";
+    } else if (widget.mode == CupertinoDatePickerMode.dateAndTime) {
+      buttonTitle = "SET DATE & TIME";
+    }
   }
 
   @override
@@ -173,9 +184,9 @@ class _SpinnerDateTimePickerState extends State<SpinnerDateTimePicker> {
                           ),
                         ),
                       ),
-                      child: const Text(
-                        "SET TIME",
-                        style: TextStyle(
+                      child: Text(
+                        buttonTitle,
+                        style: const TextStyle(
                           color: Colors.black,
                         ),
                       ),
