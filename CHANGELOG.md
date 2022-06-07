@@ -1,4 +1,8 @@
 
+## 0.0.8
+
+* Fixed an issue where the user can't scroll on web apps
+
 ## 0.0.7
 
 * Changing button text based on picker mode

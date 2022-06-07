@@ -91,10 +91,18 @@ class _SpinnerDateTimePickerState extends State<SpinnerDateTimePicker> {
   /// changes the button text based picker mode
   var buttonTitle = "SET DATE";
 
+  /// check if mobile to change the scroll behavior based on mouse or touch
+  bool isMobile = false;
+
   @override
   void initState() {
     super.initState();
     setupDateTime();
+
+    if (defaultTargetPlatform == TargetPlatform.iOS ||
+        defaultTargetPlatform == TargetPlatform.android) {
+      isMobile = true;
+    }
 
     if (widget.mode == CupertinoDatePickerMode.date) {
       buttonTitle = "SET DATE";
@@ -121,13 +129,13 @@ class _SpinnerDateTimePickerState extends State<SpinnerDateTimePicker> {
                 SizedBox(
                   height: 200,
                   child: ScrollConfiguration(
-                    behavior: kIsWeb
-                        ? const ScrollBehavior().copyWith(
+                    behavior: isMobile
+                        ? const ScrollBehavior()
+                        : const ScrollBehavior().copyWith(
                             dragDevices: {
                               PointerDeviceKind.mouse,
                             },
-                          )
-                        : const ScrollBehavior(),
+                          ),
                     child: CupertinoDatePicker(
                       initialDateTime: initialDate,
                       maximumDate: maximumDate,
