@@ -88,9 +88,6 @@ class _SpinnerDateTimePickerState extends State<SpinnerDateTimePicker> {
     );
   }
 
-  /// changes the button text based picker mode
-  var buttonTitle = "SET DATE";
-
   /// check if mobile to change the scroll behavior based on mouse or touch
   bool isMobile = false;
 
@@ -103,18 +100,12 @@ class _SpinnerDateTimePickerState extends State<SpinnerDateTimePicker> {
         defaultTargetPlatform == TargetPlatform.android) {
       isMobile = true;
     }
-
-    if (widget.mode == CupertinoDatePickerMode.date) {
-      buttonTitle = "SET DATE";
-    } else if (widget.mode == CupertinoDatePickerMode.time) {
-      buttonTitle = "SET TIME";
-    } else if (widget.mode == CupertinoDatePickerMode.dateAndTime) {
-      buttonTitle = "SET DATE & TIME";
-    }
   }
 
   @override
   Widget build(BuildContext context) {
+    final MaterialLocalizations localizations = MaterialLocalizations.of(context);
+
     return SizedBox(
       width: kIsWeb ? 320 : double.infinity,
       child: Column(
@@ -166,8 +157,8 @@ class _SpinnerDateTimePickerState extends State<SpinnerDateTimePicker> {
                           ),
                         ),
                       ),
-                      child: const Text(
-                        "CANCEL",
+                      child: Text(
+                        localizations.cancelButtonLabel,
                         style: TextStyle(
                           color: Colors.grey,
                         ),
@@ -193,7 +184,7 @@ class _SpinnerDateTimePickerState extends State<SpinnerDateTimePicker> {
                         ),
                       ),
                       child: Text(
-                        buttonTitle,
+                        localizations.okButtonLabel,
                         style: const TextStyle(
                           color: Colors.black,
                         ),
